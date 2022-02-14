@@ -35,8 +35,10 @@ class Scan:
       for tx in tqdm(block_txs, leave=True):
         transaction = self.w3.eth.getTransaction(tx)
         # check if addresses have balance, if so add them to set
-        self._add_address(transaction['to'])
-        self._add_address(transaction['from'])
+        if transaction['to'] is not None:
+          self._add_address(transaction['to'])
+        if transaction['from'] is not None:
+          self._add_address(transaction['from'])
             
       t.set_description('Collected: %d' % len(self.collected)) 
     return self.collected
