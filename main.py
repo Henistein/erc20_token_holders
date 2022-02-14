@@ -15,8 +15,7 @@ if __name__ == '__main__':
 
   # search for holders between 11818959 and the latest block
   #holders = scan.get_holders(11818959, w3.eth.get_block_number())
-  #holders = scan.get_holders(11818959, 11818964)
-  holders = scan.get_holders(11818962, 11818964)
+  holders = scan.get_holders(11818959, 11818964)
 
   # save holders into a file
   scan.save_holders('holders.json')
